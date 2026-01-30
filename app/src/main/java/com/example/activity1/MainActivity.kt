@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // TextViews
+        // TextViews for showing selected colors and output result
         val txtColor1 = findViewById<TextView>(R.id.txt_color1)
         val txtColor2 = findViewById<TextView>(R.id.txt_color2)
         val txtOutput = findViewById<TextView>(R.id.txt_output)
 
-        // Buttons
+        // Buttons for selecting colors, generating output, resetting, and showing about dialog
         val btnBlue = findViewById<Button>(R.id.btn_blue)
         val btnRed = findViewById<Button>(R.id.btn_red)
         val btnYellow = findViewById<Button>(R.id.btn_yellow)
@@ -37,25 +37,33 @@ class MainActivity : AppCompatActivity() {
         var color1 = ""
         var color2 = ""
 
-        // Disable generate button at start
+        // Initially, Generate button is disabled because no colors are selected yet
         btnGenerate.isEnabled = false
 
+
+        // Color Selection Buttons
         btnBlue.setOnClickListener {
             if (color1.isEmpty()) {
+                // Set first color
                 color1 = "Blue"
                 txtColor1.text = "Blue"
                 txtColor1.setTextColor(Color.BLUE)
+
+                // Disable the button after selection
                 btnBlue.isEnabled = false
                 btnBlue.setBackgroundColor(Color.GRAY)
                 btnBlue.setTextColor(Color.DKGRAY)
             } else if (color2.isEmpty()) {
+                // Set second color
                 color2 = "Blue"
                 txtColor2.text = "Blue"
                 txtColor2.setTextColor(Color.BLUE)
+                // Disable the button after selection
                 btnBlue.isEnabled = false
                 btnBlue.setBackgroundColor(Color.GRAY)
                 btnBlue.setTextColor(Color.DKGRAY)
 
+                // Disable other color buttons to prevent more selections
                 btnRed.isEnabled = false
                 btnRed.setBackgroundColor(Color.GRAY)
                 btnRed.setTextColor(Color.DKGRAY)
@@ -64,12 +72,14 @@ class MainActivity : AppCompatActivity() {
                 btnYellow.setBackgroundColor(Color.GRAY)
                 btnYellow.setTextColor(Color.DKGRAY)
 
+                // Enable Generate button now that two colors are selected
                 btnGenerate.isEnabled = true
-                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0"))
+                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0")) // Purple
                 btnGenerate.setTextColor(Color.WHITE)
             }
         }
 
+        // Red button logic (same as Blue)
         btnRed.setOnClickListener {
             if (color1.isEmpty()) {
                 color1 = "Red"
@@ -86,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                 btnRed.setBackgroundColor(Color.GRAY)
                 btnRed.setTextColor(Color.DKGRAY)
 
+                // Disable other color buttons
                 btnBlue.isEnabled = false
                 btnBlue.setBackgroundColor(Color.GRAY)
                 btnBlue.setTextColor(Color.DKGRAY)
@@ -94,12 +105,14 @@ class MainActivity : AppCompatActivity() {
                 btnYellow.setBackgroundColor(Color.GRAY)
                 btnYellow.setTextColor(Color.DKGRAY)
 
+                // Enable Generate button
                 btnGenerate.isEnabled = true
-                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0"))
+                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0")) // Purple
                 btnGenerate.setTextColor(Color.WHITE)
             }
         }
 
+        // Yellow button logic (same pattern)
         btnYellow.setOnClickListener {
             if (color1.isEmpty()) {
                 color1 = "Yellow"
@@ -116,6 +129,7 @@ class MainActivity : AppCompatActivity() {
                 btnYellow.setBackgroundColor(Color.GRAY)
                 btnYellow.setTextColor(Color.DKGRAY)
 
+                // Disable other color buttons
                 btnBlue.isEnabled = false
                 btnBlue.setBackgroundColor(Color.GRAY)
                 btnBlue.setTextColor(Color.DKGRAY)
@@ -124,19 +138,23 @@ class MainActivity : AppCompatActivity() {
                 btnRed.setBackgroundColor(Color.GRAY)
                 btnRed.setTextColor(Color.DKGRAY)
 
+                // Enable Generate button
                 btnGenerate.isEnabled = true
-                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0"))
+                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0")) // Purple
                 btnGenerate.setTextColor(Color.WHITE)
             }
         }
 
+        // Generate Mixed Color
         btnGenerate.setOnClickListener {
+            // Determine mixed color based on color1 and color2
             if (color1 == "Blue" && color2 == "Red" ||
                 color1 == "Red" && color2 == "Blue") {
 
                 txtOutput.text = "Purple"
                 txtOutput.setTextColor(Color.MAGENTA)
 
+                // Disable Generate button after use
                 btnGenerate.isEnabled = false
                 btnGenerate.setBackgroundColor(Color.GRAY)
                 btnGenerate.setTextColor(Color.DKGRAY)
@@ -147,6 +165,7 @@ class MainActivity : AppCompatActivity() {
                 txtOutput.text = "Green"
                 txtOutput.setTextColor(Color.GREEN)
 
+                // Disable Generate button after use
                 btnGenerate.isEnabled = false
                 btnGenerate.setBackgroundColor(Color.GRAY)
                 btnGenerate.setTextColor(Color.DKGRAY)
@@ -157,6 +176,7 @@ class MainActivity : AppCompatActivity() {
                 txtOutput.text = "Orange"
                 txtOutput.setTextColor(Color.rgb(255, 165, 0))
 
+                // Disable Generate button after use
                 btnGenerate.isEnabled = false
                 btnGenerate.setBackgroundColor(Color.GRAY)
                 btnGenerate.setTextColor(Color.DKGRAY)
@@ -166,22 +186,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Reset Button
         btnReset.setOnClickListener {
 
-            // Reset stored values
+            // Clear selected colors
             color1 = ""
             color2 = ""
 
-            // Reset TextViews
+            // Reset TextViews to default
             txtColor1.text = "Color 1"
             txtColor2.text = "Color 2"
             txtOutput.text = "Output"
-
             txtColor1.setTextColor(Color.BLACK)
             txtColor2.setTextColor(Color.BLACK)
             txtOutput.setTextColor(Color.BLACK)
 
-            // Re-enable color buttons
+            // Re-enable all color buttons
             btnBlue.isEnabled = true
             btnRed.isEnabled = true
             btnYellow.isEnabled = true
@@ -190,25 +210,24 @@ class MainActivity : AppCompatActivity() {
             btnBlue.setBackgroundColor(Color.parseColor("#ff0099cc"))   // Blue
             btnRed.setBackgroundColor(Color.parseColor("#ffcc0000"))    // Red
             btnYellow.setBackgroundColor(Color.parseColor("#ffffbb33")) // Yellow
-
             btnBlue.setTextColor(Color.WHITE)
             btnRed.setTextColor(Color.WHITE)
             btnYellow.setTextColor(Color.WHITE)
 
-            // Disable generate button again
+            // Disable Generate button until two new colors are selected
             btnGenerate.isEnabled = false
             btnGenerate.setBackgroundColor(Color.LTGRAY)
             btnGenerate.setTextColor(Color.DKGRAY)
         }
 
+        // About Button (Popup Dialog)
         btnAbout.setOnClickListener {
-
             val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("About")
                 .setMessage("Created by:\nCarl Alfred G. Chan\nBSIT - 405")
-                .setCancelable(false)
+                .setCancelable(false) // Prevent closing without pressing button
                 .setPositiveButton("Close") { dialogInterface, _ ->
-                    dialogInterface.dismiss()
+                    dialogInterface.dismiss() // Close dialog
                 }
                 .create()
 
