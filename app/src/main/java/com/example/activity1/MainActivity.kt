@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val btnRed = findViewById<Button>(R.id.btn_red)
         val btnYellow = findViewById<Button>(R.id.btn_yellow)
         val btnGenerate = findViewById<Button>(R.id.btn_generate)
+        val btnReset = findViewById<Button>(R.id.btn_reset)
 
         // Variables to store selected colors
         var color1 = ""
@@ -152,5 +153,37 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        btnReset.setOnClickListener {
+
+            // Reset stored values
+            color1 = ""
+            color2 = ""
+
+            // Reset TextViews
+            txtColor1.text = "Color 1"
+            txtColor2.text = "Color 2"
+            txtOutput.text = "Output"
+
+            txtColor1.setTextColor(Color.BLACK)
+            txtColor2.setTextColor(Color.BLACK)
+            txtOutput.setTextColor(Color.BLACK)
+
+            // Re-enable color buttons
+            btnBlue.isEnabled = true
+            btnRed.isEnabled = true
+            btnYellow.isEnabled = true
+
+            // Restore original button colors
+            btnBlue.setBackgroundColor(Color.parseColor("#ff0099cc"))   // Blue
+            btnRed.setBackgroundColor(Color.parseColor("#ffcc0000"))    // Red
+            btnYellow.setBackgroundColor(Color.parseColor("#ffffbb33")) // Yellow
+
+            btnBlue.setTextColor(Color.WHITE)
+            btnRed.setTextColor(Color.WHITE)
+            btnYellow.setTextColor(Color.WHITE)
+
+            // Disable generate button again
+            btnGenerate.isEnabled = false
+        }
     }
 }
