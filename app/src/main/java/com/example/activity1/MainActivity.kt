@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         val btnYellow = findViewById<Button>(R.id.btn_yellow)
         val btnGenerate = findViewById<Button>(R.id.btn_generate)
         val btnReset = findViewById<Button>(R.id.btn_reset)
+        val btnAbout = findViewById<Button>(R.id.btn_about)
 
         // Variables to store selected colors
         var color1 = ""
@@ -58,10 +59,14 @@ class MainActivity : AppCompatActivity() {
                 btnRed.isEnabled = false
                 btnRed.setBackgroundColor(Color.GRAY)
                 btnRed.setTextColor(Color.DKGRAY)
+
                 btnYellow.isEnabled = false
                 btnYellow.setBackgroundColor(Color.GRAY)
                 btnYellow.setTextColor(Color.DKGRAY)
+
                 btnGenerate.isEnabled = true
+                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0"))
+                btnGenerate.setTextColor(Color.WHITE)
             }
         }
 
@@ -84,10 +89,14 @@ class MainActivity : AppCompatActivity() {
                 btnBlue.isEnabled = false
                 btnBlue.setBackgroundColor(Color.GRAY)
                 btnBlue.setTextColor(Color.DKGRAY)
+
                 btnYellow.isEnabled = false
                 btnYellow.setBackgroundColor(Color.GRAY)
                 btnYellow.setTextColor(Color.DKGRAY)
+
                 btnGenerate.isEnabled = true
+                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0"))
+                btnGenerate.setTextColor(Color.WHITE)
             }
         }
 
@@ -110,10 +119,14 @@ class MainActivity : AppCompatActivity() {
                 btnBlue.isEnabled = false
                 btnBlue.setBackgroundColor(Color.GRAY)
                 btnBlue.setTextColor(Color.DKGRAY)
+
                 btnRed.isEnabled = false
                 btnRed.setBackgroundColor(Color.GRAY)
                 btnRed.setTextColor(Color.DKGRAY)
+
                 btnGenerate.isEnabled = true
+                btnGenerate.setBackgroundColor(Color.parseColor("#9C27B0"))
+                btnGenerate.setTextColor(Color.WHITE)
             }
         }
 
@@ -184,6 +197,22 @@ class MainActivity : AppCompatActivity() {
 
             // Disable generate button again
             btnGenerate.isEnabled = false
+            btnGenerate.setBackgroundColor(Color.LTGRAY)
+            btnGenerate.setTextColor(Color.DKGRAY)
+        }
+
+        btnAbout.setOnClickListener {
+
+            val dialog = androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("About")
+                .setMessage("Created by:\nCarl Alfred G. Chan\nBSIT - 405")
+                .setCancelable(false)
+                .setPositiveButton("Close") { dialogInterface, _ ->
+                    dialogInterface.dismiss()
+                }
+                .create()
+
+            dialog.show()
         }
     }
 }
