@@ -1,95 +1,113 @@
-# Color Mixer App
+# Activity 1 – Color Mixer App
 
-## Overview
+This project is an Android application developed for **Free Elective 3: Mobile Computing**. The main purpose of this activity is to learn the **basics of Android development**, focusing on **TextView**, **Buttons**, and **simple conditional logic (`if–else`)** in Kotlin.
 
-This is a simple Android app developed in **Kotlin** using **Android Studio**. The app allows users to select two primary colors (Blue, Red, Yellow) and generates the resulting mixed color. It is designed for learning purposes to demonstrate basic Android UI, event handling, and color manipulation.
+The application allows users to select **two primary colors** and generates the resulting mixed color for practice and learning purposes.
+
+---
+
+## Application Overview
+
+The app allows the user to:
+
+* Select a first color (Color 1)
+* Select a second color (Color 2)
+* Generate the mixed color result
+* Reset the app state without restarting
+* View developer information via an About dialog
+
+This project is designed for **educational and demonstration purposes**, focusing on basic Android UI components and programming concepts.
+
 
 ---
 
 ## Features
 
-* Select two primary colors (Color 1 and Color 2).
-* Generate the resulting color:
+* Uses **Buttons** for color selection (Blue, Red, Yellow)
+* Displays selected colors using **TextViews**
+* Generates color combinations:
 
   * Blue + Red → Purple
   * Blue + Yellow → Green
   * Red + Yellow → Orange
-* Reset button to clear selections and start over.
-* About button to display app creator information.
-* Buttons dynamically enable/disable to prevent invalid selections.
-* UI reflects color choices through both button and text color.
+* Generate button activates only after two colors are selected
+* Reset button clears all selections and restores default state
+* About dialog displays developer information
+* Buttons dynamically enable and disable to guide correct usage
 
 ---
 
 ## Screenshots
-<img width="891" height="904" alt="Screenshot 2026-01-31 024147" src="https://github.com/user-attachments/assets/c2110d4f-eeef-4e4f-a326-1f1c81f71730" />
 
-<img width="875" height="904" alt="Screenshot 2026-01-31 024133" src="https://github.com/user-attachments/assets/c987e42f-39ad-4993-86a4-82579f473c31" />
+<img width="891" height="904" alt="Screenshot 1" src="https://github.com/user-attachments/assets/c2110d4f-eeef-4e4f-a326-1f1c81f71730" />
 
----
-
-## How to Run
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/Prshk1/Color-Mixer-App.git
-```
-
-2. Open the project in **Android Studio**.
-3. Build and run on an emulator or Android device.
+<img width="875" height="904" alt="Screenshot 2" src="https://github.com/user-attachments/assets/c987e42f-39ad-4993-86a4-82579f473c31" />
 
 ---
 
-## File Structure
+## How the Color Mixer Works
 
-* `MainActivity.kt` → Contains the main logic (color selection, generate, reset, About dialog).
-* `activity_main.xml` → Defines the app layout (TextViews and Buttons).
-* `AndroidManifest.xml` → App configuration.
-* `README.md` → Project documentation.
+1. The user selects a **first color**, which is stored as `color1`.
+2. The user selects a **second color**, which is stored as `color2`.
+3. After two colors are selected:
 
----
+   * All color buttons are disabled
+   * The Generate button becomes enabled
+4. When Generate is pressed:
 
-## App Logic Overview
-
-1. **Color Selection**
-
-   * User clicks a color button (Blue, Red, or Yellow).
-   * First click sets `color1`, second click sets `color2`.
-   * Other buttons are disabled after two selections.
-   * Generate button is enabled.
-
-2. **Generate Mixed Color**
-
-   * The app checks `color1` and `color2`.
-   * Displays the resulting color in the Output TextView.
-   * Generate button is disabled after generating.
-
-3. **Reset**
-
-   * Clears `color1` and `color2`.
-   * Resets TextViews to default text.
-   * Re-enables all color buttons.
-   * Disables Generate button until new selections are made.
-
-4. **About**
-
-   * Displays a popup dialog showing the app creator's name and other information.
+   * The app checks the color combination using `if–else` statements
+   * The resulting mixed color is displayed in the Output TextView
+   * The Generate button is disabled to prevent repeated output
+5. The Reset button clears all values and restores the app to its initial state.
 
 ---
 
-## Learning Points
+## Technologies Used
 
-* Android UI components: TextView, Button, AlertDialog.
-* Event handling in Kotlin using `setOnClickListener`.
-* Managing button states dynamically with `isEnabled`.
-* Using color codes in Android (`Color.parseColor`, `Color.rgb`).
-* Conditional logic for color mixing using `if-else`.
+* **Android Studio**
+* **Kotlin**
+* Android SDK
 
 ---
 
-## Author
+## Key Concepts Used
 
-**Carl Alfred G. Chan**  
-EASTWOODS Professional College of Science and Technology  
-BSIT - 405 (SY 2025-2026)
+* Android UI components: **TextView** and **Button**
+* Button click handling using `setOnClickListener`
+* UI updates using `TextView`
+* Dynamic enabling and disabling of buttons using `isEnabled`
+* Color manipulation using `Color.parseColor` and `Color.rgb`
+* Conditional logic with `if–else`
+
+---
+
+## Purpose of the Activity
+
+The main objective of this activity is to:
+
+* Understand the basics of TextView and Button usage in Android
+* Learn how to handle button clicks and change UI elements dynamically
+* Apply basic conditional logic (`if–else`) to solve a problem
+* Build a clean and beginner-friendly Android application
+
+Additional features such as reset functionality and an About dialog were added to improve usability and learning experience.
+
+---
+
+## Developer Information
+
+**Carl Alfred G. Chan**
+BSIT – 405
+EASTWOODS Professional College of Science and Technology
+Free Elective 3: Mobile Computing
+
+---
+
+## Release Information
+
+This repository includes:
+
+* Source code
+* APK file for testing and demonstration
+
+This project is intended for **academic submission and learning purposes only**.
