@@ -32,7 +32,6 @@ This project is designed for **educational and demonstration purposes**, focusin
   * Red + Yellow → Orange
 * Generate button activates only after two colors are selected
 * Reset button clears all selections and restores default state
-* About dialog displays developer information
 * Buttons dynamically enable and disable to guide correct usage
 
 ---
